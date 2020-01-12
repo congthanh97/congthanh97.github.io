@@ -198,7 +198,7 @@
 	}
 	
 	#control #side {
-		width: 240px;
+		width: 320px;
 		padding: 78px 30px 0 30px;
 		float: right;
 	}
@@ -304,7 +304,7 @@
 ========================================================*/
 
 	#side #logo {
-		text-align: right;
+		text-align: center;
 	}
 	
 	#side #logo h1 {
@@ -728,6 +728,9 @@
 			
 			#social .facebook a {
 				background: url(../images/icons/social_facebook.png) top left no-repeat;
+			}
+			#social .github a {
+				background: url(../images/icons/social_github.png) top left no-repeat;
 			}
 			#social .twitter a {
 				background: url(../images/icons/social_twitter.png) top left no-repeat;
