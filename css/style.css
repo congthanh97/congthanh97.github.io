@@ -731,6 +731,7 @@
 			}
 			#social .github a {
 				background: url(../images/icons/social_github.png) top left no-repeat;
+				color:blue;
 			}
 			#social .twitter a {
 				background: url(../images/icons/social_twitter.png) top left no-repeat;
