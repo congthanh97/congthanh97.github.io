@@ -2,40 +2,40 @@
 // not supported in all browsers though and sometimes needs a prefix, so we need a shim
 window.requestAnimFrame = ( function() {
 	return window.requestAnimationFrame ||
-				window.webkitRequestAnimationFrame ||
-				window.mozRequestAnimationFrame ||
-				function( callback ) {
-					window.setTimeout( callback, 1000 / 60 );
-				};
+	window.webkitRequestAnimationFrame ||
+	window.mozRequestAnimationFrame ||
+	function( callback ) {
+		window.setTimeout( callback, 100000 / 100 );
+	};
 })();
 
-// now we will setup our basic variables for the demo
-var canvas = document.getElementById( 'canvas' ),
-		ctx = canvas.getContext( '2d' ),
-		// full screen dimensions
-		cw = window.innerWidth,
-		ch = window.innerHeight,
-		// firework collection
-		fireworks = [],
-		// particle collection
-		particles = [],
-		// starting hue
-		hue = 120,
-		// when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
-		limiterTotal = 5,
-		limiterTick = 0,
-		// this will time the auto launches of fireworks, one launch per 80 loop ticks
-		timerTotal = 80,
-		timerTick = 0,
-		mousedown = false,
-		// mouse x coordinate,
-		mx,
-		// mouse y coordinate
-		my;
-		
-// set canvas dimensions
-canvas.width = cw;
-canvas.height = ch;
+	// now we will setup our basic variables for the demo
+	var canvas = document.getElementById( 'canvas' ),
+	ctx = canvas.getContext( '2d' ),
+	// full screen dimensions
+	cw = window.innerWidth,
+	ch = window.innerHeight,
+	// firework collection
+	fireworks = [],
+	// particle collection
+	particles = [],
+	// starting hue
+	hue = 120,
+	// when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
+	limiterTotal = 10,
+	limiterTick = 0,
+	// this will time the auto launches of fireworks, one launch per 80 loop ticks
+	timerTotal = 80,
+	timerTick = 0,
+	mousedown = false,
+	// mouse x coordinate,
+	mx,
+	// mouse y coordinate
+	my;
+
+	// set canvas dimensions
+	canvas.width = cw;
+	canvas.height = ch;
 
 // now we are going to setup our function placeholders for the entire demo
 
@@ -47,8 +47,8 @@ function random( min, max ) {
 // calculate the distance between two points
 function calculateDistance( p1x, p1y, p2x, p2y ) {
 	var xDistance = p1x - p2x,
-			yDistance = p1y - p2y;
-	return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
+		yDistance = p1y - p2y;
+	return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2)); // The formula calculates the distance between 2 points
 }
 
 // create firework
